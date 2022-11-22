@@ -160,20 +160,29 @@ function init() {
   var torusKnotMesh = new THREE.Mesh(geometryTorus, materialTorus);
   torusKnotMesh.position.y = 25;
   torusKnotMesh.position.x = 2;
-  torusKnotMesh.position.z = -85;
+  torusKnotMesh.position.z = -35;
   console.log(torusKnotMesh.position);
   scene.add(torusKnotMesh);
 
   // EJEMPLO PARA MODELO 3D GLB
-  var loader = new GLTFLoader();
+  var loadergl = new GLTFLoader();
 
-  loader.load("./assets/sword.glb", function (gltf) {
-    var sword = gltf.scene; // sword 3D object is loaded
-    sword.scale.set(0.02, 0.02, 0.02);
-    sword.position.y = 25;
-    sword.position.x = 2;
-    sword.position.z = -75;
-    scene.add(sword);
+  loadergl.load("./assets/microbus_mexico_df.glb", function (gltf) {
+    var micro = gltf.scene; // micro 3D object is loaded
+    micro.scale.set(4, 4, 4);
+    micro.position.y = 5;
+    micro.position.x = -20;
+    micro.position.z = 25;
+    scene.add(micro);
+  });
+
+  loadergl.load("./assets/mexican_starter_pack.glb", function (gltf) {
+    var mexpack = gltf.scene; // mexpack 3D object is loaded
+    mexpack.scale.set(.1, .1, .1);
+    mexpack.position.y = 5;
+    mexpack.position.x = 20;
+    mexpack.position.z = 15;
+    scene.add(mexpack);
   });
 
   // EJEMPLO PARA PONER VIDEO EN RECTANGULO
@@ -277,9 +286,9 @@ function init() {
   wall5.rotation.y = Math.PI / 2;
   scene.add(wall5);
 
-  const wall6 = new THREE.Mesh(wallGeometry4, wallMaterial);
+  let wallGeometry6 = new THREE.PlaneGeometry(100, 100);
+  const wall6 = new THREE.Mesh(wallGeometry6, wallMaterial);
   wall6.position.y = 0;
- 
   wall6.position.z = -80;
   scene.add(wall6);
   
