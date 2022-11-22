@@ -210,6 +210,35 @@ function init() {
     scene.add(mexpack);
   });
 
+
+
+
+
+  let antecedentescristGeometry = new THREE.PlaneGeometry(8, 10,1);
+  var textureantecedentescrist = new THREE.TextureLoader().load("assets/desc_crist.png");
+  var antecedentescristMaterial = new THREE.MeshPhongMaterial({
+    map: textureantecedentescrist,
+    side: THREE.DoubleSide,
+  });
+
+  const antecedentescrist = new THREE.Mesh(antecedentescristGeometry, antecedentescristMaterial);
+  antecedentescrist.position.y = 10;
+  antecedentescrist.position.x = 98;
+  antecedentescrist.position.z = -73;
+  antecedentescrist.rotation.y = 3*Math.PI / 2;
+  scene.add(antecedentescrist);
+
+
+  loadergl.load("./assets/cristobal_colon.glb", function (gltf) {
+    var crist = gltf.scene; // micro 3D object is loaded
+    crist.scale.set(1, 1, 0.9);
+    crist.position.y = 10;
+    crist.position.x = 80;
+    crist.position.z = -90;
+    crist.rotation.y = -(3*Math.PI / 2);
+    scene.add(crist);
+  });
+
   // EJEMPLO PARA PONER VIDEO EN RECTANGULO
 
   let video = document.createElement("video");
