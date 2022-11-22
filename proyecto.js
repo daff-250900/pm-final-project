@@ -172,8 +172,9 @@ function init() {
     var barco = gltf.scene; // mexpack 3D object is loaded
     barco.scale.set(2, 2, 2);
     barco.position.y = 5;
-    barco.position.x = 20;
-    barco.position.z = 40;
+    barco.position.x = 30;
+    barco.position.z = 35;
+    //barco.rotation.y = -(2*Math.PI / 10);
     scene.add(barco);
   });
 
@@ -186,12 +187,33 @@ function init() {
   var dbarco = new THREE.Sprite(barcoMaterial);
   dbarco.scale.set(5, 5, 1);
   dbarco.position.y = 8;
-  dbarco.position.x = 12;
+  dbarco.position.x = 23;
   dbarco.position.z = 40;
-  dbarco.rotation.y = -(3*Math.PI / 4);
-  //dbarco.rotation.y = 3*Math.PI / 4;
-  //dbarco.rotateY(3*Math.PI / 4);
+  //dbarco.rotation.y = -(3*Math.PI / 4);
+  //dbarco.rotation.x = -(2*Math.PI / 6);
+  dbarco.rotateY(3*Math.PI / 4);
   scene.add(dbarco);
+
+
+  loadergl.load("./assets/mexican_flag.glb", function (gltf) {
+    var flag = gltf.scene; // micro 3D object is loaded
+    flag.scale.set(8, 7, 4);
+    flag.position.y = 20;
+    flag.position.x = 0;
+    flag.position.z = -75;
+    scene.add(flag);
+  });
+
+
+  loadergl.load("./assets/cabeza_olmeca.glb", function (gltf) {
+    var mesa = gltf.scene; // micro 3D object is loaded
+    mesa.scale.set(4, 3, 3);
+    mesa.position.y = 0;
+    mesa.position.x = -33;
+    mesa.position.z = -60;
+    mesa.rotation.y = -(2*Math.PI / 6);
+    scene.add(mesa);
+  });
 
 
   loadergl.load("./assets/microbus_mexico_df.glb", function (gltf) {
@@ -307,22 +329,6 @@ function init() {
     }); */
 
   /* torusKnotMesh.add(sound); */
-
-  // EJEMPLO PARA PONER CUADRO DE TEXTO
-
-  var spriteMap = new THREE.TextureLoader().load("assets/messagebox.png");
-  const spriteMaterial = new THREE.SpriteMaterial({
-    map: spriteMap,
-    depthWrite: false,
-  });
-
-  var sprite = new THREE.Sprite(spriteMaterial);
-  sprite.scale.set(10, 10, 1);
-  sprite.position.y = 10;
-  sprite.position.x = 20;
-  sprite.position.z = -75;
-  sprite.rotateY(Math.PI / 2);
-  scene.add(sprite);
 
   // PAREDES
 
