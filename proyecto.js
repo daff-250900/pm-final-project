@@ -188,7 +188,9 @@ function init() {
   dbarco.position.y = 8;
   dbarco.position.x = 12;
   dbarco.position.z = 40;
-  dbarco.rotateY(Math.PI / 2);
+  dbarco.rotation.y = -(3*Math.PI / 4);
+  //dbarco.rotation.y = 3*Math.PI / 4;
+  //dbarco.rotateY(3*Math.PI / 4);
   scene.add(dbarco);
 
 
@@ -262,6 +264,34 @@ function init() {
   exibitionMesh.position.y = 20;
   exibitionMesh.position.z = 80;
   scene.add(exibitionMesh);
+
+
+
+  let video2 = document.createElement("video");
+  video2.src = "./assets/noalclasismo.mp4";
+  video2.autoplay = true;
+  video2.loop = true;
+  video2.muted = true;
+  video2.load();
+  video2.play();
+
+  var video2Texture = new THREE.VideoTexture(video2);
+  video2Texture.wrapS = video2Texture.wrapT = THREE.ClampToEdgeWrapping;
+  video2Texture.minFilter = THREE.LinearFilter;
+  var exhibition2Material = new THREE.MeshPhongMaterial({
+    map: video2Texture,
+    side: THREE.DoubleSide,
+  });
+
+  var exhibition2Geometry = new THREE.PlaneGeometry(70, 40);
+  var exibition2Mesh = new THREE.Mesh(exhibition2Geometry, exhibition2Material);
+  exibition2Mesh.position.y = 25;
+  exibition2Mesh.position.z = -83;
+  exibition2Mesh.rotation.y = -(Math.PI);
+  scene.add(exibition2Mesh);
+
+
+
 
   // EJEMPLO PONER AUDIO
 
