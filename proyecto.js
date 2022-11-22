@@ -167,6 +167,31 @@ function init() {
   // EJEMPLO PARA MODELO 3D GLB
   var loadergl = new GLTFLoader();
 
+
+  loadergl.load("./assets/la_nina.glb", function (gltf) {
+    var barco = gltf.scene; // mexpack 3D object is loaded
+    barco.scale.set(2, 2, 2);
+    barco.position.y = 5;
+    barco.position.x = 20;
+    barco.position.z = 40;
+    scene.add(barco);
+  });
+
+  var barcoMap = new THREE.TextureLoader().load("assets/desc_barco.png");
+  const barcoMaterial = new THREE.SpriteMaterial({
+    map: barcoMap,
+    depthWrite: false,
+  });
+
+  var dbarco = new THREE.Sprite(barcoMaterial);
+  dbarco.scale.set(5, 5, 1);
+  dbarco.position.y = 8;
+  dbarco.position.x = 12;
+  dbarco.position.z = 40;
+  dbarco.rotateY(Math.PI / 2);
+  scene.add(dbarco);
+
+
   loadergl.load("./assets/microbus_mexico_df.glb", function (gltf) {
     var micro = gltf.scene; // micro 3D object is loaded
     micro.scale.set(4, 4, 4);
@@ -311,8 +336,8 @@ function init() {
 
   // ANTECEDENTES
 
-  let antecedentes1Geometry = new THREE.PlaneGeometry(10, 10,1);
-  var textureantecedentes1 = new THREE.TextureLoader().load("assets/text1.png");
+  let antecedentes1Geometry = new THREE.PlaneGeometry(8, 8,1);
+  var textureantecedentes1 = new THREE.TextureLoader().load("assets/desc_castas.png");
   var antecedentes1Material = new THREE.MeshPhongMaterial({
     map: textureantecedentes1,
     side: THREE.DoubleSide,
@@ -321,12 +346,12 @@ function init() {
   const antecedentes1 = new THREE.Mesh(antecedentes1Geometry, antecedentes1Material);
   antecedentes1.position.y = 10;
   antecedentes1.position.x = 99;
-  antecedentes1.position.z =  70;
+  antecedentes1.position.z = 56;
   antecedentes1.rotation.y = 3*Math.PI / 2;
   scene.add(antecedentes1);
 
-  let antecedentes2Geometry = new THREE.PlaneGeometry(70, 50,1);
-  var textureantecedentes2 = new THREE.TextureLoader().load("assets/colonialismo_clasessociales.png");
+  let antecedentes2Geometry = new THREE.PlaneGeometry(60, 50,1);
+  var textureantecedentes2 = new THREE.TextureLoader().load("assets/castas.jpg");
   var antecedentes2Material = new THREE.MeshPhongMaterial({
     map: textureantecedentes2,
     side: THREE.DoubleSide,
@@ -335,9 +360,40 @@ function init() {
   const antecedentes2 = new THREE.Mesh(antecedentes2Geometry, antecedentes2Material);
   antecedentes2.position.y = 10;
   antecedentes2.position.x = 99;
-  antecedentes2.position.z =  30;
+  antecedentes2.position.z =  20;
   antecedentes2.rotation.y = 3*Math.PI / 2;
   scene.add(antecedentes2);
+
+
+  let antecedentes3descGeometry = new THREE.PlaneGeometry(8, 8,1);
+  var textureantecedentes3desc = new THREE.TextureLoader().load("assets/desc_piramide.png");
+  var antecedentes3descMaterial = new THREE.MeshPhongMaterial({
+    map: textureantecedentes3desc,
+    side: THREE.DoubleSide,
+  });
+
+  const antecedentes3desc = new THREE.Mesh(antecedentes3descGeometry, antecedentes3descMaterial);
+  antecedentes3desc.position.y = 10;
+  antecedentes3desc.position.x = 51;
+  antecedentes3desc.position.z = -40;
+  antecedentes3desc.rotation.y = 6*Math.PI / 4;
+  scene.add(antecedentes3desc);
+
+
+  let antecedentes3Geometry = new THREE.PlaneGeometry(40, 30,1);
+  var textureantecedentes3 = new THREE.TextureLoader().load("assets/piramide.jpg");
+  var antecedentes3Material = new THREE.MeshPhongMaterial({
+    map: textureantecedentes3,
+    side: THREE.DoubleSide,
+  });
+
+  const antecedentes3 = new THREE.Mesh(antecedentes3Geometry, antecedentes3Material);
+  antecedentes3.position.y = 10;
+  antecedentes3.position.x = 51;
+  antecedentes3.position.z =  -15;
+  antecedentes3.rotation.y = 6*Math.PI / 4;
+  scene.add(antecedentes3);
+
 
 
   // CONFIG ESCENA
