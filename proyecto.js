@@ -331,6 +331,14 @@ function init() {
   /* torusKnotMesh.add(sound); */
 
   // PAREDES
+  let wallGeometry2 = new THREE.PlaneGeometry(240, 100);
+  var textureWall2 = new THREE.TextureLoader().load("./assets/wine.jpg");
+  var wallMaterial2 = new THREE.MeshPhongMaterial({
+    map: textureWall2,
+    side: THREE.DoubleSide,
+  });
+
+
 
   let wallGeometry = new THREE.PlaneGeometry(240, 100);
   var textureWall = new THREE.TextureLoader().load("./assets/stars.jpg");
@@ -362,14 +370,14 @@ function init() {
 
   let wallGeometry4 = new THREE.PlaneGeometry(120, 100);
 
-  const wall4 = new THREE.Mesh(wallGeometry4, wallMaterial);
+  const wall4 = new THREE.Mesh(wallGeometry4, wallMaterial2);
   wall4.position.y = 0;
   wall4.position.x = 50;
   wall4.position.z = -20;
   wall4.rotation.y = Math.PI / 2;
   scene.add(wall4);
 
-  const wall5 = new THREE.Mesh(wallGeometry4, wallMaterial);
+  const wall5 = new THREE.Mesh(wallGeometry4, wallMaterial2);
   wall5.position.y = 0;
   wall5.position.x = -50;
   wall5.position.z = -20;
@@ -377,7 +385,7 @@ function init() {
   scene.add(wall5);
 
   let wallGeometry6 = new THREE.PlaneGeometry(100, 100);
-  const wall6 = new THREE.Mesh(wallGeometry6, wallMaterial);
+  const wall6 = new THREE.Mesh(wallGeometry6, wallMaterial2);
   wall6.position.y = 0;
   wall6.position.z = -80;
   scene.add(wall6);
