@@ -229,6 +229,37 @@ function init() {
     scene.add(sprite);
 
 
+    var textMap = new THREE.TextureLoader().load("assets/text1.png");
+    const textMaterial = new THREE.SpriteMaterial({
+        map: textMap,
+        depthWrite: false,
+    });
+
+    var sprite2 = new THREE.Sprite(textMaterial);
+    sprite2.scale.set(10, 10, 1);
+    sprite2.position.y = 10;
+    sprite2.position.x = -30;
+    sprite2.position.z = -10;
+    sprite2.rotateY(Math.PI / 2);
+    scene.add(sprite2);
+
+
+    
+    var pyrt = new THREE.TextureLoader().load("assets/colonialismo_clasessociales.png");
+    const pyrMaterial = new THREE.SpriteMaterial({
+        map: pyrt,
+        depthWrite: false,
+    });
+
+    var pyr1 = new THREE.Sprite(pyrMaterial);
+    pyr1.scale.set(70, 50, 1);
+    pyr1.position.y = 10;
+    pyr1.position.x = 20;
+    pyr1.position.z = -10;
+    pyr1.rotateY(Math.PI / 2);
+    scene.add(pyr1);
+  
+
     // CONFIG ESCENA
 
     renderer = new THREE.WebGLRenderer({ antialias: true });
