@@ -358,13 +358,15 @@ function init() {
   });
 
   const antecedentes2 = new THREE.Mesh(antecedentes2Geometry, antecedentes2Material);
-  antecedentes2.position.y = 10;
+  antecedentes2.position.y = 20;
   antecedentes2.position.x = 99;
   antecedentes2.position.z =  20;
   antecedentes2.rotation.y = 3*Math.PI / 2;
   scene.add(antecedentes2);
 
+  // Actual 
 
+  
   let antecedentes3descGeometry = new THREE.PlaneGeometry(8, 8,1);
   var textureantecedentes3desc = new THREE.TextureLoader().load("assets/desc_piramide.png");
   var antecedentes3descMaterial = new THREE.MeshPhongMaterial({
@@ -395,6 +397,115 @@ function init() {
   scene.add(antecedentes3);
 
 
+
+  video = document.createElement("video");
+  video.src = "./assets/actual1.mp4";
+  video.autoplay = true;
+  video.loop = true;
+  video.muted = true;
+  video.load();
+  video.play();
+
+  var videoTexture = new THREE.VideoTexture(video);
+  videoTexture.wrapS = videoTexture.wrapT = THREE.ClampToEdgeWrapping;
+  videoTexture.minFilter = THREE.LinearFilter;
+  var exhibitionMaterial = new THREE.MeshPhongMaterial({
+    map: videoTexture,
+    side: THREE.DoubleSide,
+  });
+
+  var exhibitionGeometry = new THREE.PlaneGeometry(20, 30);
+  var exibitionMesh = new THREE.Mesh(exhibitionGeometry, exhibitionMaterial);
+  exibitionMesh.position.y = 25;
+  exibitionMesh.position.z = -140;
+  exibitionMesh.position.x = 75;
+  scene.add(exibitionMesh);
+
+  let actual1Geometry = new THREE.PlaneGeometry(50, 30,1);
+  var textureactual1 = new THREE.TextureLoader().load("assets/actual2.jpeg");
+  var actual1Material = new THREE.MeshPhongMaterial({
+    map: textureactual1,
+    side: THREE.DoubleSide,
+  });
+
+  const actual1 = new THREE.Mesh(actual1Geometry, actual1Material);
+  actual1.position.y = 25;
+  actual1.position.x = 0;
+  actual1.position.z =  -140;
+  scene.add(actual1);
+
+  let actual2Geometry = new THREE.PlaneGeometry(30, 40,1);
+  var textureactual2 = new THREE.TextureLoader().load("assets/actual3.jpeg");
+  var actual2Material = new THREE.MeshPhongMaterial({
+    map: textureactual2,
+    side: THREE.DoubleSide,
+  });
+
+  const actual2 = new THREE.Mesh(actual2Geometry, actual2Material);
+  actual2.position.y = 25;
+  actual2.position.x = -60;
+  actual2.position.z =  -140;
+  scene.add(actual2);
+
+
+
+  // FUTURO
+
+  let futuro1Geometry = new THREE.PlaneGeometry(50, 30,1);
+  var texturefuturo1 = new THREE.TextureLoader().load("assets/stable1.png");
+  var futuro1Material = new THREE.MeshPhongMaterial({
+    map: texturefuturo1,
+    side: THREE.DoubleSide,
+  });
+
+  const futuro1 = new THREE.Mesh(futuro1Geometry, futuro1Material);
+  futuro1.position.y = 20;
+  futuro1.position.x = -99;
+  futuro1.position.z =  30;
+  futuro1.rotation.y = 3*Math.PI / 2;
+  scene.add(futuro1);
+
+  let futuro2Geometry = new THREE.PlaneGeometry(40, 20,1);
+  var texturefuturo2 = new THREE.TextureLoader().load("assets/stable2.png");
+  var futuro2Material = new THREE.MeshPhongMaterial({
+    map: texturefuturo2,
+    side: THREE.DoubleSide,
+  });
+
+  const futuro2 = new THREE.Mesh(futuro2Geometry, futuro2Material);
+  futuro2.position.y = 15;
+  futuro2.position.x = -52;
+  futuro2.position.z =  15;
+  futuro2.rotation.y = 3*Math.PI / 2;
+  scene.add(futuro2);
+
+  let futuro3Geometry = new THREE.PlaneGeometry(40, 20,1);
+  var texturefuturo3 = new THREE.TextureLoader().load("assets/stable3.png");
+  var futuro3Material = new THREE.MeshPhongMaterial({
+    map: texturefuturo3,
+    side: THREE.DoubleSide,
+  });
+
+  const futuro3 = new THREE.Mesh(futuro3Geometry, futuro3Material);
+  futuro3.position.y = 15;
+  futuro3.position.x = -52;
+  futuro3.position.z =  -50;
+  futuro3.rotation.y = 3*Math.PI / 2;
+  scene.add(futuro3);
+
+  let futuro4Geometry = new THREE.PlaneGeometry(50, 30,1);
+  var texturefuturo4 = new THREE.TextureLoader().load("assets/memes.jpeg");
+  var futuro4Material = new THREE.MeshPhongMaterial({
+    map: texturefuturo4,
+    side: THREE.DoubleSide,
+  });
+
+  const futuro4 = new THREE.Mesh(futuro4Geometry, futuro4Material);
+  futuro4.position.y = 17;
+  futuro4.position.x = -99;
+  futuro4.position.z =  -50;
+  futuro4.rotation.y = Math.PI / 2;
+  scene.add(futuro4);
 
   // CONFIG ESCENA
 
